@@ -19,21 +19,43 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     var selectedFoodItem: String?
     var motionManager = CMMotionManager()
     @IBOutlet weak var titleLabel: UILabel!
+    var foodImageViewTransform: CGFloat = 100
     
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         foodPicker.delegate = self
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.titleLabel.text = "Shake Me!"
-        print("viewWillAppear called")
         animateInitialState()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Notification Methods
+    @objc func didEnterBackground() {
+        foodImageView.center.y = foodImageViewTransform
+    }
+    
+    @objc func willEnterForeground() {
+        foodImageView.center.y = foodImageViewTransform
+        animateInitialState()
+    }
+    
+    // MARK: - Animation
 
     fileprivate func configureMotion() {
         motionManager.accelerometerUpdateInterval = 1.0
@@ -59,7 +81,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
         }
     }
     
-    fileprivate func animateInitialState() {
+    @objc fileprivate func animateInitialState() {
         let animationOptions: UIViewAnimationOptions = [.curveEaseIn, .autoreverse, .repeat]
         UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 20.0, options: animationOptions, animations: {
             self.foodImageView.center.y = 300
@@ -74,6 +96,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
         return true
         }
 }
+
+
+
+
 
 // MARK: - FoodPickerView Data Source
 
