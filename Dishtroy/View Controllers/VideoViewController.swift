@@ -32,9 +32,7 @@ class VideoViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    fileprivate func configureVideo() {
         if let urlPath = path {
             let url = URL(fileURLWithPath: urlPath)
             let player = AVPlayer(url: url)
@@ -49,6 +47,11 @@ class VideoViewController: UIViewController {
             player.play()
             UIDevice.vibrate()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureVideo()
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {
