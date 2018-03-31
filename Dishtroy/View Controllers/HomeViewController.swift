@@ -31,29 +31,44 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.titleLabel.text = "Shake Me!"
+        print("viewWillAppear called")
+        animateInitialState()
     }
 
+    fileprivate func configureMotion() {
+        motionManager.accelerometerUpdateInterval = 1.0
+        let animationOptions: UIViewAnimationOptions = [.curveLinear, .autoreverse, .repeat]
+        if let currentQueue = OperationQueue.current {
+            motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
+                if let data = data {
+                    if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
+                        let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
+                        videoVC.selectedItem = self.selectedFoodItem
+                        self.present(videoVC, animated: true, completion: nil)
+                    }
+                    
+                    if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                        UIDevice.vibrate()
+                        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 30.0, options: animationOptions, animations: {
+                                self.foodImageView.center.y = 100
+                        }, completion: nil)
+                        self.titleLabel.text = "Harder!!!"
+                    }
+                }
+            })
+        }
+    }
+    
+    fileprivate func animateInitialState() {
+        let animationOptions: UIViewAnimationOptions = [.curveEaseIn, .autoreverse, .repeat]
+        UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 20.0, options: animationOptions, animations: {
+            self.foodImageView.center.y = 300
+        }, completion: nil)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        motionManager.accelerometerUpdateInterval = 1.0
-        if let currentQueue = OperationQueue.current {
-        motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
-            if let data = data {
-                if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
-                    let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
-                    videoVC.selectedItem = self.selectedFoodItem
-                    self.present(videoVC, animated: true, completion: nil)
-                }
-                
-                if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
-                    UIDevice.vibrate()
-                    self.titleLabel.text = "Harder!!!"
-                }
-            }
-        })
-    }
+        configureMotion()
 }
     override var prefersStatusBarHidden: Bool {
         return true

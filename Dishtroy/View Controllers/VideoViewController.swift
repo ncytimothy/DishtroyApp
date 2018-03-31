@@ -27,7 +27,6 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         if let selectedItem = selectedItem {
             let videoString = selectedItem + "_" + "explode"
-            print("videoString: \(videoString)")
             path = Bundle.main.path(forResource: videoString, ofType: "mp4")
         }
     }
