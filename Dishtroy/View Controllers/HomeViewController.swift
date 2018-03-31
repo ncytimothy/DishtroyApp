@@ -16,8 +16,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodPicker: UIPickerView!
     var pickerDataSource = ["Tomato", "Orange", "Apple"]
-    var motionManager: CMMotionManager!
-    
+    var motionManager = CMMotionManager()
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
         })
     }
 }
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
