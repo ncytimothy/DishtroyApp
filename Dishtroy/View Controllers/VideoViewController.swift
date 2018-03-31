@@ -21,7 +21,11 @@ class VideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        path = Bundle.main.path(forResource: selectedItem!, ofType: "mp4")
+        if let selectedItem = selectedItem {
+            let videoString = selectedItem + "_" + "explode"
+            print("videoString: \(videoString)")
+            path = Bundle.main.path(forResource: videoString, ofType: "mp4")
+        }
     }
 
     override func didReceiveMemoryWarning() {

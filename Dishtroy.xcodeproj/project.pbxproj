@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7210D5C2206FE77400861214 /* tomato_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7210D5C1206FE77400861214 /* tomato_explode.mp4 */; };
 		725852ED206F363A00AC005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EC206F363A00AC005A /* AppDelegate.swift */; };
 		725852EF206F363A00AC005A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EE206F363A00AC005A /* HomeViewController.swift */; };
 		725852F2206F363A00AC005A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725852F0206F363A00AC005A /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7210D5C1206FE77400861214 /* tomato_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomato_explode.mp4; sourceTree = "<group>"; };
 		725852E9206F363A00AC005A /* Dishtroy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dishtroy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725852EC206F363A00AC005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725852EE206F363A00AC005A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 		7210D5C3206FE77700861214 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				7210D5C1206FE77400861214 /* tomato_explode.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -271,7 +268,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				725852F7206F363A00AC005A /* LaunchScreen.storyboard in Resources */,
-				7210D5C2206FE77400861214 /* tomato_explode.mp4 in Resources */,
 				725852F4206F363A00AC005A /* Assets.xcassets in Resources */,
 				725852F2206F363A00AC005A /* Main.storyboard in Resources */,
 			);

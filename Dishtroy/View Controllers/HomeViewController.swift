@@ -18,12 +18,19 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     var pickerDataSource = ["Tomato", "Orange", "Apple"]
     var selectedFoodItem: String?
     var motionManager = CMMotionManager()
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         foodPicker.delegate = self
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.titleLabel.text = "Shake Me!"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +45,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
                     let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
                     videoVC.selectedItem = self.selectedFoodItem
                     self.present(videoVC, animated: true, completion: nil)
+                }
+                
+                if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                    self.titleLabel.text = "Harder!!!"
                 }
             }
         })

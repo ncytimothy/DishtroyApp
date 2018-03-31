@@ -48,6 +48,7 @@
                     <connections>
                         <outlet property="foodImageView" destination="28E-Jt-4L6" id="K5P-ew-PVB"/>
                         <outlet property="foodPicker" destination="3Mk-Ln-1DI" id="WmA-N8-2wf"/>
+                        <outlet property="titleLabel" destination="hsz-Q2-f8m" id="0RY-C5-yzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
