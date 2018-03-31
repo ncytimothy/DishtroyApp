@@ -48,6 +48,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
                 }
                 
                 if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                    UIDevice.vibrate()
                     self.titleLabel.text = "Harder!!!"
                 }
             }
@@ -56,7 +57,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
 }
     override var prefersStatusBarHidden: Bool {
         return true
-    }
+        }
 }
 
 // MARK: - FoodPickerView Data Source
@@ -94,8 +95,13 @@ extension HomeViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        configureFoodItem(row)
         return pickerDataSource[row]
+        }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        configureFoodItem(row)
     }
 }
+
+
 
