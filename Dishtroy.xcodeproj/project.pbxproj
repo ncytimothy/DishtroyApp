@@ -17,6 +17,7 @@
 		7258530D206F363B00AC005A /* DishtroyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258530C206F363B00AC005A /* DishtroyUITests.swift */; };
 		72D61BC7206FE01E004E2698 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D61BC5206FE01E004E2698 /* AVKit.framework */; };
 		72D61BC8206FE01E004E2698 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D61BC6206FE01E004E2698 /* AVFoundation.framework */; };
+		C511E59A206FE97A006D6F4A /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C511E599206FE97A006D6F4A /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		7258530E206F363B00AC005A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D61BC5206FE01E004E2698 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		72D61BC6206FE01E004E2698 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C511E599206FE97A006D6F4A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				725852EE206F363A00AC005A /* HomeViewController.swift */,
+				C511E599206FE97A006D6F4A /* VideoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				725852EF206F363A00AC005A /* HomeViewController.swift in Sources */,
 				725852ED206F363A00AC005A /* AppDelegate.swift in Sources */,
+				C511E59A206FE97A006D6F4A /* VideoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
