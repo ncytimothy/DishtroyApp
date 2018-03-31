@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		72284F0F2070042A00CF9083 /* Tomato_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 72284F0E2070042A00CF9083 /* Tomato_explode.mp4 */; };
+		72284F132070047700CF9083 /* Orange_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 72284F112070047700CF9083 /* Orange_explode.mp4 */; };
+		72284F142070047700CF9083 /* Apple_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 72284F122070047700CF9083 /* Apple_explode.mp4 */; };
 		725852ED206F363A00AC005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EC206F363A00AC005A /* AppDelegate.swift */; };
 		725852EF206F363A00AC005A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EE206F363A00AC005A /* HomeViewController.swift */; };
 		725852F2206F363A00AC005A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725852F0206F363A00AC005A /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		72284F0E2070042A00CF9083 /* Tomato_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tomato_explode.mp4; sourceTree = "<group>"; };
+		72284F112070047700CF9083 /* Orange_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Orange_explode.mp4; sourceTree = "<group>"; };
+		72284F122070047700CF9083 /* Apple_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Apple_explode.mp4; sourceTree = "<group>"; };
 		725852E9206F363A00AC005A /* Dishtroy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dishtroy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725852EC206F363A00AC005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725852EE206F363A00AC005A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				72284F0E2070042A00CF9083 /* Tomato_explode.mp4 */,
+				72284F122070047700CF9083 /* Apple_explode.mp4 */,
+				72284F112070047700CF9083 /* Orange_explode.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -270,6 +276,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72284F142070047700CF9083 /* Apple_explode.mp4 in Resources */,
+				72284F132070047700CF9083 /* Orange_explode.mp4 in Resources */,
 				725852F7206F363A00AC005A /* LaunchScreen.storyboard in Resources */,
 				72284F0F2070042A00CF9083 /* Tomato_explode.mp4 in Resources */,
 				725852F4206F363A00AC005A /* Assets.xcassets in Resources */,
