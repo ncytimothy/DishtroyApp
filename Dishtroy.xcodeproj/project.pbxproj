@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		722AA819206FF88100509CE2 /* Orange_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 722AA818206FF88000509CE2 /* Orange_explode.mp4 */; };
-		724218AE206FFAD90085982E /* Tomato_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 724218AD206FFAD90085982E /* Tomato_explode.mp4 */; };
-		724218B0206FFB1B0085982E /* Apple_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 724218AF206FFB1B0085982E /* Apple_explode.mp4 */; };
 		725852ED206F363A00AC005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EC206F363A00AC005A /* AppDelegate.swift */; };
 		725852EF206F363A00AC005A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EE206F363A00AC005A /* HomeViewController.swift */; };
 		725852F2206F363A00AC005A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725852F0206F363A00AC005A /* Main.storyboard */; };
@@ -40,9 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		722AA818206FF88000509CE2 /* Orange_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Orange_explode.mp4; sourceTree = "<group>"; };
-		724218AD206FFAD90085982E /* Tomato_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Tomato_explode.mp4; sourceTree = "<group>"; };
-		724218AF206FFB1B0085982E /* Apple_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Apple_explode.mp4; sourceTree = "<group>"; };
 		725852E9206F363A00AC005A /* Dishtroy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dishtroy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725852EC206F363A00AC005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725852EE206F363A00AC005A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,20 +82,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7210D5C3206FE77700861214 /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				724218AF206FFB1B0085982E /* Apple_explode.mp4 */,
-				724218AD206FFAD90085982E /* Tomato_explode.mp4 */,
-				722AA818206FF88000509CE2 /* Orange_explode.mp4 */,
-			);
-			path = Videos;
-			sourceTree = "<group>";
-		};
 		725852E0206F363A00AC005A = {
 			isa = PBXGroup;
 			children = (
-				7210D5C3206FE77700861214 /* Videos */,
 				725852EB206F363A00AC005A /* Dishtroy */,
 				72585300206F363B00AC005A /* DishtroyTests */,
 				7258530B206F363B00AC005A /* DishtroyUITests */,
@@ -276,10 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724218B0206FFB1B0085982E /* Apple_explode.mp4 in Resources */,
 				725852F7206F363A00AC005A /* LaunchScreen.storyboard in Resources */,
-				722AA819206FF88100509CE2 /* Orange_explode.mp4 in Resources */,
-				724218AE206FFAD90085982E /* Tomato_explode.mp4 in Resources */,
 				725852F4206F363A00AC005A /* Assets.xcassets in Resources */,
 				725852F2206F363A00AC005A /* Main.storyboard in Resources */,
 			);
