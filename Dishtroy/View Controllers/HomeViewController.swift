@@ -8,7 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet weak var forceSlider: UISlider!
+    @IBOutlet weak var foodPicker: UIPickerView!
     
     // MARK: - Life cycle
 
@@ -22,6 +28,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
 
 }
 
