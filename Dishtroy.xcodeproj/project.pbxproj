@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7210D5C2206FE77400861214 /* tomato_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7210D5C1206FE77400861214 /* tomato_explode.mp4 */; };
 		725852ED206F363A00AC005A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EC206F363A00AC005A /* AppDelegate.swift */; };
 		725852EF206F363A00AC005A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725852EE206F363A00AC005A /* HomeViewController.swift */; };
 		725852F2206F363A00AC005A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725852F0206F363A00AC005A /* Main.storyboard */; };
@@ -14,8 +15,6 @@
 		725852F7206F363A00AC005A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 725852F5206F363A00AC005A /* LaunchScreen.storyboard */; };
 		72585302206F363B00AC005A /* DishtroyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72585301206F363B00AC005A /* DishtroyTests.swift */; };
 		7258530D206F363B00AC005A /* DishtroyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7258530C206F363B00AC005A /* DishtroyUITests.swift */; };
-		72D61BC1206FE000004E2698 /* orange_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 72D61BBF206FE000004E2698 /* orange_explode.mp4 */; };
-		72D61BC2206FE000004E2698 /* tomato_explode.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 72D61BC0206FE000004E2698 /* tomato_explode.mp4 */; };
 		72D61BC7206FE01E004E2698 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D61BC5206FE01E004E2698 /* AVKit.framework */; };
 		72D61BC8206FE01E004E2698 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D61BC6206FE01E004E2698 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
@@ -38,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7210D5C1206FE77400861214 /* tomato_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomato_explode.mp4; sourceTree = "<group>"; };
 		725852E9206F363A00AC005A /* Dishtroy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dishtroy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725852EC206F363A00AC005A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		725852EE206F363A00AC005A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -51,8 +51,6 @@
 		72585308206F363B00AC005A /* DishtroyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DishtroyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7258530C206F363B00AC005A /* DishtroyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishtroyUITests.swift; sourceTree = "<group>"; };
 		7258530E206F363B00AC005A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72D61BBF206FE000004E2698 /* orange_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = orange_explode.mp4; sourceTree = "<group>"; };
-		72D61BC0206FE000004E2698 /* tomato_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tomato_explode.mp4; sourceTree = "<group>"; };
 		72D61BC5206FE01E004E2698 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		72D61BC6206FE01E004E2698 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -84,10 +82,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7210D5C3206FE77700861214 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				7210D5C1206FE77400861214 /* tomato_explode.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
 		725852E0206F363A00AC005A = {
 			isa = PBXGroup;
 			children = (
-				72D61BC3206FE00A004E2698 /* Videos */,
+				7210D5C3206FE77700861214 /* Videos */,
 				725852EB206F363A00AC005A /* Dishtroy */,
 				72585300206F363B00AC005A /* DishtroyTests */,
 				7258530B206F363B00AC005A /* DishtroyUITests */,
@@ -143,15 +149,6 @@
 				725852EE206F363A00AC005A /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		72D61BC3206FE00A004E2698 /* Videos */ = {
-			isa = PBXGroup;
-			children = (
-				72D61BBF206FE000004E2698 /* orange_explode.mp4 */,
-				72D61BC0206FE000004E2698 /* tomato_explode.mp4 */,
-			);
-			path = Videos;
 			sourceTree = "<group>";
 		};
 		72D61BC4206FE01D004E2698 /* Frameworks */ = {
@@ -271,8 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				725852F7206F363A00AC005A /* LaunchScreen.storyboard in Resources */,
-				72D61BC1206FE000004E2698 /* orange_explode.mp4 in Resources */,
-				72D61BC2206FE000004E2698 /* tomato_explode.mp4 in Resources */,
+				7210D5C2206FE77400861214 /* tomato_explode.mp4 in Resources */,
 				725852F4206F363A00AC005A /* Assets.xcassets in Resources */,
 				725852F2206F363A00AC005A /* Main.storyboard in Resources */,
 			);
