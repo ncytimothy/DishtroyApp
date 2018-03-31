@@ -38,7 +38,7 @@ extension HomeViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        <#code#>
+        return 1
     }
 }
 
