@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class HomeViewController: UIViewController, UIPickerViewDelegate {
     
@@ -15,7 +16,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodPicker: UIPickerView!
     var pickerDataSource = ["Tomato", "Orange", "Apple"]
-    
+    var motionManager = CMMotionManager()
+
     // MARK: - Life cycle
 
     override func viewDidLoad() {
@@ -23,9 +25,23 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
         foodPicker.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let forceRange = -3.5..<3.5
+        motionManager.accelerometerUpdateInterval = 1.0
+        if let currentQueue = OperationQueue.current {
+        motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
+            if let data = data {
+                if forceRange.contains(data.acceleration.x) {
+                    //TODO: Prepare to pass data to VideoVC
+                }
+            }
+        })
+    }
+}
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 
