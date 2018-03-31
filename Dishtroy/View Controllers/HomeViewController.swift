@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodPicker: UIPickerView!
     var pickerDataSource = ["Tomato", "Orange", "Apple"]
+    var selectedFoodItem: String?
     var motionManager = CMMotionManager()
 
     // MARK: - Life cycle
@@ -28,13 +29,15 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let forceRange = -3.5..<3.5
+        
         motionManager.accelerometerUpdateInterval = 1.0
         if let currentQueue = OperationQueue.current {
         motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
             if let data = data {
-                if forceRange.contains(data.acceleration.x) {
-                    //TODO: Prepare to pass data to VideoVC
+                if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
+                    let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
+                    videoVC.selectedItem = self.selectedFoodItem
+                    self.present(videoVC, animated: true, completion: nil)
                 }
             }
         })
@@ -62,15 +65,19 @@ extension HomeViewController: UIPickerViewDataSource {
         switch row {
         case 0:
             foodImageView.image = UIImage(named: "Tomato")
+            selectedFoodItem = "Tomato"
             break
         case 1:
             foodImageView.image = UIImage(named: "Orange")
+            selectedFoodItem = "Orange"
             break
         case 2:
             foodImageView.image = UIImage(named: "Apple")
+            selectedFoodItem = "Apple"
             break
         default:
             foodImageView.image = UIImage(named: "Tomato")
+            selectedFoodItem = "Tomato"
             break
         }
     }
