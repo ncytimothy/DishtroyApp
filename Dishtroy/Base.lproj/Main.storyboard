@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Z64-MS-ehs">
                                 <rect key="frame" x="8" y="20" width="359" height="647"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="28E-Jt-4L6">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="500" image="Tomato" translatesAutoresizingMaskIntoConstraints="NO" id="28E-Jt-4L6">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="334"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-Q2-f8m">
@@ -71,4 +71,7 @@
             <point key="canvasLocation" x="711" y="34"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tomato" width="150" height="150"/>
+    </resources>
 </document>

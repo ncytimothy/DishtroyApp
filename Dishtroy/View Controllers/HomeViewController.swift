@@ -95,11 +95,8 @@ extension HomeViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerDataSource[row]
-        }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         configureFoodItem(row)
+        return pickerDataSource[row]
     }
 }
 
