@@ -34,11 +34,13 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
 
 extension HomeViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerDataSource.count
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return pickerDataSource.count
     }
+    
+    
 }
 
