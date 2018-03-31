@@ -13,9 +13,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     // MARK: - Properties
     
     @IBOutlet weak var foodImageView: UIImageView!
-    @IBOutlet weak var forceSlider: UISlider!
     @IBOutlet weak var foodPicker: UIPickerView!
-    var pickerDataSource = ["Tomato", "Cola"]
+    var pickerDataSource = ["Tomato", "Orange", "Apple"]
     
     // MARK: - Life cycle
 
@@ -41,6 +40,28 @@ extension HomeViewController: UIPickerViewDataSource {
         return pickerDataSource.count
     }
     
+    // MARK: - Configure UI for Food Item
     
+    fileprivate func configureFoodItem(_ row: Int) {
+        switch row {
+        case 0:
+            foodImageView.image = UIImage(named: "Tomato")
+            break
+        case 1:
+            foodImageView.image = UIImage(named: "Orange")
+            break
+        case 2:
+            foodImageView.image = UIImage(named: "Apple")
+            break
+        default:
+            foodImageView.image = UIImage(named: "Tomato")
+            break
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        configureFoodItem(row)
+        return pickerDataSource[row]
+    }
 }
 
