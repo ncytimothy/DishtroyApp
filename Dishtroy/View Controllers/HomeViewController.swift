@@ -67,35 +67,45 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
     
     // MARK: - Animation
 
+    fileprivate func alertUserToPickEnemy() {
+        guard self.presentedViewController != nil else {
+            UIDevice.vibrate()
+            let alertVC = UIAlertController(title: "No enemy yet!", message: "You haven't decided on your enemy yet! Add using the buttons below!", preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertVC, animated: true, completion: {
+                self.titleLabel.text = "Shake Me"
+                self.animateInitialState()
+            })
+            return
+        }
+    }
+    
     fileprivate func configureMotion() {
         motionManager.accelerometerUpdateInterval = 1.0
         let animationOptions: UIViewAnimationOptions = [.curveLinear, .autoreverse, .repeat]
         if let currentQueue = OperationQueue.current {
             motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
                 if let data = data {
-                    
-                    
-                    
+                
                     if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
-                        
-                        let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
-                        videoVC.selectedItem = self.selectedFoodItem
-                        videoVC.userImage = self.userImage
-                        self.present(videoVC, animated: true, completion: nil)
+                        print("accel: >=3.5")
+                        if self.userIsSelecting && self.userImage == nil {
+                            self.alertUserToPickEnemy()
+                        } else {
+                            let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
+                            videoVC.selectedItem = self.selectedFoodItem
+                            videoVC.userImage = self.userImage
+                            self.present(videoVC, animated: true, completion: nil)
+                        }
                     }
                     
                     if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
                         
                         if self.userIsSelecting && self.userImage == nil {
-                            UIDevice.vibrate()
-                            let alertVC = UIAlertController(title: "No enemy yet!", message: "You haven't decided on your enemy yet! Add using the buttons below!", preferredStyle: .alert)
-                            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                            self.present(alertVC, animated: true, completion: nil)
-                            self.titleLabel.text = "Shake Me"
-                            self.animateInitialState()
+                            self.alertUserToPickEnemy()
                         }
+                        
                         UIDevice.vibrate()
-                       
                         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 30.0, options: animationOptions, animations: {
                                 self.foodImageView.center.y = 100
                         }, completion: nil)
@@ -136,6 +146,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = sourceType
+        self.motionManager.stopAccelerometerUpdates()
         present(imagePickerController, animated: true, completion: nil)
     }
     
@@ -177,8 +188,14 @@ extension HomeViewController: UIPickerViewDataSource {
             selectedFoodItem = "Apple"
             break
         case 3:
-             foodImageView.image = UIImage(named: "QuestionMark")
-             selectedFoodItem = "Standard"
+            selectedFoodItem = "Standard"
+            if userImage == nil {
+                foodImageView.image = UIImage(named: "QuestionMark")
+            } else {
+                print("else block running...")
+                foodImageView.contentMode = .scaleAspectFit
+                foodImageView.image = userImage
+            }
         default:
             break
         }
@@ -198,6 +215,7 @@ extension HomeViewController: UIPickerViewDataSource {
         } else {
             albumButton.isHidden = true
             cameraButton.isHidden = true
+            userIsSelecting  = false
         }
     }
 }
