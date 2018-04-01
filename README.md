@@ -1,16 +1,16 @@
 # DishtroyApp
 
-An insanely addictive explosion game! Pour out your rage and see various food and people you don't like explode!
+An insanely addictive explosion game! See various food and people you don't like explode!
 
 # Technologies we used:
 
-Swift, UIKit, AVFoundation, AVKit, CoreAnimation
+Swift, UIKit, AVFoundation, AVKit, CoreAnimation, CoreMotion
 
 # API:
 
 N/A
 
-# Objectvies and Difficutlies:
+# Objectvies and Difficulties:
 
 * We initially have great ambitious ideas for the hackthon but have decided to work on something more managable as both of us are novice Swift developers
 * We focused a lot of making extremely simple; concentrating on the gameplay and overall experience of Dishtroy
