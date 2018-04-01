@@ -10,7 +10,7 @@ Swift, UIKit, AVFoundation, AVKit, CoreAnimation, CoreMotion
 
 N/A
 
-# Objectvies and Difficutlies:
+# Objectvies and Difficulties:
 
 * We initially have great ambitious ideas for the hackthon but have decided to work on something more managable as both of us are novice Swift developers
 * We focused a lot of making extremely simple; concentrating on the gameplay and overall experience of Dishtroy
