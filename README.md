@@ -24,6 +24,7 @@ N/A
 
 # Credits:
 * Icons made by Smashicons <https://www.flaticon.com/authors/smashicons> from www.flaticon.com <www.flaticon.com>
+* Icons made by Freepik <https://www.flaticon.com/authors/freepik> from www.flaticon.com <www.flaticon.com>
 * Exploding Tomato video by Chauncey Longman
  <https://www.youtube.com/watch?v=vwmkKpvQRVA>
  * Exploding Orange by Slow Mo Lab <https://www.youtube.com/watch?v=eNG0K73LqVM>
