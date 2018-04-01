@@ -74,20 +74,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
             motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
                 if let data = data {
                     
-                    if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
-                        guard let _ = self.userImage else {
-                            if self.userIsSelecting {
-                                let alertVC = UIAlertController(title: "No enemy yet!", message: "You haven't decided on your enemy yet! Add using the buttons below!", preferredStyle: .alert)
-                                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                                self.present(alertVC, animated: true, completion: nil)
-                                self.titleLabel.text = "Shake Me"
-                                self.animateInitialState()
-                            }
-                            return
-                        }
-                    }
-                
+                    
+                    
                     if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
+                        
                         let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
                         videoVC.selectedItem = self.selectedFoodItem
                         videoVC.userImage = self.userImage
@@ -95,7 +85,17 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
                     }
                     
                     if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                        
+                        if self.userIsSelecting && self.userImage == nil {
+                            UIDevice.vibrate()
+                            let alertVC = UIAlertController(title: "No enemy yet!", message: "You haven't decided on your enemy yet! Add using the buttons below!", preferredStyle: .alert)
+                            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                            self.present(alertVC, animated: true, completion: nil)
+                            self.titleLabel.text = "Shake Me"
+                            self.animateInitialState()
+                        }
                         UIDevice.vibrate()
+                       
                         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 30.0, options: animationOptions, animations: {
                                 self.foodImageView.center.y = 100
                         }, completion: nil)
