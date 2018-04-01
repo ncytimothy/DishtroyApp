@@ -17,6 +17,8 @@ class VideoViewController: UIViewController {
     var path: String?
     var player: AVPlayer?
     var userImage: UIImage?
+    @IBOutlet weak var userImageView: UIImageView?
+    var isUserImage: Bool = false
     
     // MARK: - Life cycle
     
@@ -31,21 +33,31 @@ class VideoViewController: UIViewController {
             print("videoString: \(videoString)")
             path = Bundle.main.path(forResource: videoString, ofType: "mp4")
         }
+        configureVideo()
     }
+  
     
     fileprivate func configureVideo() {
         if let urlPath = path {
+            print("configureVideo called")
             let url = URL(fileURLWithPath: urlPath)
             let player = AVPlayer(url: url)
             let playerLayer = AVPlayerLayer(player: player)
-//            let imageLayer = AVPlayerLayer(layer: userImage)
+            
+            if selectedItem == "Standard" {
+                isUserImage = true
+            }
             
             NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
-            
             playerLayer.frame = self.view.frame
             playerLayer.videoGravity = .resizeAspectFill
             self.view.layer.addSublayer(playerLayer)
-//            self.view.layer.addSublayer(imageLayer)
+            if let userImageView = userImageView, isUserImage {
+                userImageView.image = userImage
+                userImageView.alpha = 0.5
+                print("addSubViewOK")
+                self.view.addSubview(userImageView)
+            }
             player.seek(to: kCMTimeZero)
             player.play()
             UIDevice.vibrate()
@@ -54,7 +66,7 @@ class VideoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureVideo()
+        print("viewWillAppear called")
     }
     
     @objc func playerDidFinishPlaying(note: NSNotification) {

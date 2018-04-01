@@ -24,6 +24,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
     @IBOutlet weak var albumButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
     var userImage: UIImage?
+    var userIsSelecting: Bool = false
   
     
     // MARK: - Life cycle
@@ -72,6 +73,20 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
         if let currentQueue = OperationQueue.current {
             motionManager.startAccelerometerUpdates(to: currentQueue, withHandler: { data, error in
                 if let data = data {
+                    
+                    if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                        guard let _ = self.userImage else {
+                            if self.userIsSelecting {
+                                let alertVC = UIAlertController(title: "No enemy yet!", message: "You haven't decided on your enemy yet! Add using the buttons below!", preferredStyle: .alert)
+                                alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                                self.present(alertVC, animated: true, completion: nil)
+                                self.titleLabel.text = "Shake Me"
+                                self.animateInitialState()
+                            }
+                            return
+                        }
+                    }
+                
                     if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
                         let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
                         videoVC.selectedItem = self.selectedFoodItem
@@ -94,7 +109,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
     @objc fileprivate func animateInitialState() {
         let animationOptions: UIViewAnimationOptions = [.curveEaseIn, .autoreverse, .repeat]
         UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 20.0, options: animationOptions, animations: {
-            self.foodImageView.center.y = 300
+            self.foodImageView.center.y = 200
         }, completion: nil)
     }
     
@@ -164,7 +179,6 @@ extension HomeViewController: UIPickerViewDataSource {
         case 3:
              foodImageView.image = UIImage(named: "QuestionMark")
              selectedFoodItem = "Standard"
-            
         default:
             break
         }
@@ -180,6 +194,7 @@ extension HomeViewController: UIPickerViewDataSource {
         if row == 3 {
             albumButton.isHidden = false
             cameraButton.isHidden = false
+            userIsSelecting  = true
         } else {
             albumButton.isHidden = true
             cameraButton.isHidden = true
