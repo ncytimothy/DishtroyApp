@@ -58,6 +58,7 @@
 		7258530E206F363B00AC005A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D61BC5206FE01E004E2698 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		72D61BC6206FE01E004E2698 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		72E78DEA20708C01007B0C28 /* Standard_explode.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Standard_explode.mp4; sourceTree = "<group>"; };
 		C511E599206FE97A006D6F4A /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +92,7 @@
 		72284F102070042E00CF9083 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				72E78DEA20708C01007B0C28 /* Standard_explode.mp4 */,
 				72284F0E2070042A00CF9083 /* Tomato_explode.mp4 */,
 				72284F122070047700CF9083 /* Apple_explode.mp4 */,
 				72284F112070047700CF9083 /* Orange_explode.mp4 */,

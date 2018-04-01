@@ -23,8 +23,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
     var foodImageViewTransform: CGFloat = 100
     @IBOutlet weak var albumButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
-    var path: String?
-    var assets: AVAsset?
+    var userImage: UIImage?
+  
     
     // MARK: - Life cycle
 
@@ -75,11 +75,11 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
                     if data.acceleration.x >= 3.5 || data.acceleration.x <= -3.5 {
                         let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
                         videoVC.selectedItem = self.selectedFoodItem
+                        videoVC.userImage = self.userImage
                         self.present(videoVC, animated: true, completion: nil)
                     }
                     
                     if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
-                        
                         UIDevice.vibrate()
                         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 30.0, options: animationOptions, animations: {
                                 self.foodImageView.center.y = 100
@@ -124,6 +124,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    @IBAction func pressDebug(_ sender: Any) {
+        let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
+        videoVC.selectedItem = self.selectedFoodItem
+        videoVC.userImage = self.userImage
+        self.present(videoVC, animated: true, completion: nil)
+    }
     
 }
 
@@ -157,8 +163,8 @@ extension HomeViewController: UIPickerViewDataSource {
             break
         case 3:
              foodImageView.image = UIImage(named: "QuestionMark")
-             selectedFoodItem = "Explosion"
-            //TODO: Fix this passing to VideoVC
+             selectedFoodItem = "Standard"
+            
         default:
             break
         }
@@ -187,6 +193,7 @@ extension HomeViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             foodImageView.image = image
+            userImage = image
             foodImageView.contentMode = .scaleAspectFit
         }
         dismiss(animated: true, completion: nil)

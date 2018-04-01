@@ -16,6 +16,7 @@ class VideoViewController: UIViewController {
     var selectedItem: String?
     var path: String?
     var player: AVPlayer?
+    var userImage: UIImage?
     
     // MARK: - Life cycle
     
@@ -27,6 +28,7 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         if let selectedItem = selectedItem {
             let videoString = selectedItem + "_" + "explode"
+            print("videoString: \(videoString)")
             path = Bundle.main.path(forResource: videoString, ofType: "mp4")
         }
     }
@@ -36,12 +38,14 @@ class VideoViewController: UIViewController {
             let url = URL(fileURLWithPath: urlPath)
             let player = AVPlayer(url: url)
             let playerLayer = AVPlayerLayer(player: player)
+//            let imageLayer = AVPlayerLayer(layer: userImage)
             
             NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player.currentItem)
             
             playerLayer.frame = self.view.frame
             playerLayer.videoGravity = .resizeAspectFill
             self.view.layer.addSublayer(playerLayer)
+//            self.view.layer.addSublayer(imageLayer)
             player.seek(to: kCMTimeZero)
             player.play()
             UIDevice.vibrate()
