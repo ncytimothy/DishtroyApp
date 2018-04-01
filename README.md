@@ -1,6 +1,6 @@
 # DishtroyApp
 
-An insanely addictive explosion game! Pour out your rage and see various food and people you don't like explode!
+An insanely addictive explosion game! See various food and people you don't like explode!
 
 # Technologies we used:
 
