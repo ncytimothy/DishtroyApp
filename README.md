@@ -4,7 +4,7 @@ An insanely addictive explosion game! Pour out your rage and see various food an
 
 # Technologies we used:
 
-Swift, UIKit, AVFoundation, AVKit, CoreAnimation
+Swift, UIKit, AVFoundation, AVKit, CoreAnimation, CoreMotion
 
 # API:
 
