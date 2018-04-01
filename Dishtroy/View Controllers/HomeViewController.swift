@@ -16,7 +16,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
     
     @IBOutlet weak var foodImageView: UIImageView!
     @IBOutlet weak var foodPicker: UIPickerView!
-    var pickerDataSource = ["Tomato", "Orange", "Apple"]
+    var pickerDataSource = ["Tomato", "Orange", "Apple", "Pick Yours"]
     var selectedFoodItem: String?
     var motionManager = CMMotionManager()
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,6 +33,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
         foodPicker.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.didEnterBackground), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.willEnterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        albumButton.isHidden = true
+        cameraButton.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -153,17 +155,29 @@ extension HomeViewController: UIPickerViewDataSource {
             foodImageView.image = UIImage(named: "Apple")
             selectedFoodItem = "Apple"
             break
-        default:
-            foodImageView.image = UIImage(named: "QuestionMark")
-            selectedFoodItem = "Explosion"
+        case 3:
+             foodImageView.image = UIImage(named: "QuestionMark")
+             selectedFoodItem = "Explosion"
             //TODO: Fix this passing to VideoVC
+        default:
             break
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        print("row: \(row)")
         configurePickerTitle(row)
         return pickerDataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if row == 3 {
+            albumButton.isHidden = false
+            cameraButton.isHidden = false
+        } else {
+            albumButton.isHidden = true
+            cameraButton.isHidden = true
+        }
     }
 }
 
