@@ -13,13 +13,14 @@ N/A
 # Objectvies and Difficulties:
 
 * We initially have great ambitious ideas for the hackthon but have decided to work on something more managable as both of us are novice Swift developers
-* We focused a lot of making extremely simple; concentrating on the gameplay and overall experience of Dishtroy
+* We focused a lot of making the game extremely simple; concentrating on the gameplay and overall experience
 * We also put our attention to making a polish game
 * We have trouble learning about CoreAnimation and was only able to implement basic animation into the game
 
 # What's next for Dishtroy:
 
 * Add animations to the fruits so that the user can see them disintegrate as they shake the phone
+* Implement ReplyKit for instant reply and sharing
 * Publish to the App Store
 
 # Credits:
