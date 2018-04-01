@@ -90,17 +90,31 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sFr-y4-vmG">
                                 <rect key="frame" x="37" y="96" width="305" height="479"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOQ-30-Vbe">
+                                <rect key="frame" x="79" y="617" width="220" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressDone:" destination="NXj-0a-Oo5" eventType="touchUpInside" id="nsr-Nc-4GK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sFr-y4-vmG" firstAttribute="leading" secondItem="kLa-2c-hD0" secondAttribute="leading" constant="37" id="1bR-v0-OqS"/>
                             <constraint firstItem="sFr-y4-vmG" firstAttribute="top" secondItem="kLa-2c-hD0" secondAttribute="top" constant="76" id="35w-Ff-exl"/>
+                            <constraint firstItem="iOQ-30-Vbe" firstAttribute="leading" secondItem="kLa-2c-hD0" secondAttribute="leading" constant="79" id="3HM-Ks-PII"/>
                             <constraint firstItem="kLa-2c-hD0" firstAttribute="trailing" secondItem="sFr-y4-vmG" secondAttribute="trailing" constant="33" id="428-Q0-Hie"/>
                             <constraint firstItem="kLa-2c-hD0" firstAttribute="bottom" secondItem="sFr-y4-vmG" secondAttribute="bottom" constant="92" id="YdO-hN-Zd1"/>
+                            <constraint firstAttribute="bottom" secondItem="iOQ-30-Vbe" secondAttribute="bottom" constant="20" symbolic="YES" id="aME-EK-mhU"/>
+                            <constraint firstItem="iOQ-30-Vbe" firstAttribute="centerX" secondItem="sFr-y4-vmG" secondAttribute="centerX" id="i6O-xy-B5j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kLa-2c-hD0"/>
                     </view>
                     <connections>
+                        <outlet property="doneButton" destination="iOQ-30-Vbe" id="XVe-oE-eGU"/>
                         <outlet property="userImageView" destination="sFr-y4-vmG" id="Z5I-b0-Epg"/>
                     </connections>
                 </viewController>

@@ -149,14 +149,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationCo
         self.motionManager.stopAccelerometerUpdates()
         present(imagePickerController, animated: true, completion: nil)
     }
-    
-    @IBAction func pressDebug(_ sender: Any) {
-        let videoVC = self.storyboard?.instantiateViewController(withIdentifier: "VideoVC") as! VideoViewController
-        videoVC.selectedItem = self.selectedFoodItem
-        videoVC.userImage = self.userImage
-        self.present(videoVC, animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - FoodPickerView Data Source
