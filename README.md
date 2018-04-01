@@ -20,6 +20,7 @@ N/A
 # What's next for Dishtroy:
 
 * Add animations to the fruits so that the user can see them disintegrate as they shake the phone
+* Implement ReplyKit for instant reply and sharing
 * Publish to the App Store
 
 # Credits:
