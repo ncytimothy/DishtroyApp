@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreMotion
+import AVFoundation
 
-class HomeViewController: UIViewController, UIPickerViewDelegate {
+class HomeViewController: UIViewController, UIPickerViewDelegate, UINavigationControllerDelegate {
     
     // MARK: - Properties
     
@@ -20,6 +21,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     var motionManager = CMMotionManager()
     @IBOutlet weak var titleLabel: UILabel!
     var foodImageViewTransform: CGFloat = 100
+    @IBOutlet weak var albumButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
+    var path: String?
+    var assets: AVAsset?
     
     // MARK: - Life cycle
 
@@ -33,6 +38,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.titleLabel.text = "Shake Me!"
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        albumButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.photoLibrary)
         animateInitialState()
     }
     
@@ -70,6 +77,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
                     }
                     
                     if data.acceleration.x >= 1 || data.acceleration.x <= -1 {
+                        
                         UIDevice.vibrate()
                         UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 30.0, options: animationOptions, animations: {
                                 self.foodImageView.center.y = 100
@@ -95,11 +103,27 @@ class HomeViewController: UIViewController, UIPickerViewDelegate {
     override var prefersStatusBarHidden: Bool {
         return true
         }
+    
+    // MARK: - Actions
+    
+    @IBAction func pickImageFromAlbum(_ sender: Any) {
+        chooseSourceType(sourceType: .photoLibrary)
+    }
+    
+    @IBAction func pickImageFromCamera(_ sender: Any) {
+        chooseSourceType(sourceType: .camera)
+    }
+    
+    // MARK: - Helper Choosing Source Type
+    func chooseSourceType(sourceType: UIImagePickerControllerSourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    
 }
-
-
-
-
 
 // MARK: - FoodPickerView Data Source
 
@@ -114,7 +138,8 @@ extension HomeViewController: UIPickerViewDataSource {
     
     // MARK: - Configure UI for Food Item
     
-    fileprivate func configureFoodItem(_ row: Int) {
+    fileprivate func configurePickerTitle(_ row: Int) {
+        foodImageView.contentMode = .center
         switch row {
         case 0:
             foodImageView.image = UIImage(named: "Tomato")
@@ -129,17 +154,32 @@ extension HomeViewController: UIPickerViewDataSource {
             selectedFoodItem = "Apple"
             break
         default:
-            foodImageView.image = UIImage(named: "Tomato")
-            selectedFoodItem = "Tomato"
+            foodImageView.image = UIImage(named: "QuestionMark")
+            selectedFoodItem = "Explosion"
+            //TODO: Fix this passing to VideoVC
             break
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        configureFoodItem(row)
+        configurePickerTitle(row)
         return pickerDataSource[row]
     }
 }
+
+
+extension HomeViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            foodImageView.image = image
+            foodImageView.contentMode = .scaleAspectFit
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
 
 
 

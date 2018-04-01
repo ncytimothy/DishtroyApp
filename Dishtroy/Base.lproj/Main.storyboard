@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,23 +15,42 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Dishtroy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-YX-OLg">
+                                <rect key="frame" x="8" y="629" width="359" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nr7-KT-Eda">
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="30"/>
+                                        <state key="normal" title="Album"/>
+                                        <connections>
+                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5nA-hu-14Q"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0w-OJ-iHN">
+                                        <rect key="frame" x="179.5" y="0.0" width="179.5" height="30"/>
+                                        <state key="normal" title="Camera"/>
+                                        <connections>
+                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlT-Db-cEo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Z64-MS-ehs">
-                                <rect key="frame" x="8" y="20" width="304" height="548"/>
+                                <rect key="frame" x="8" y="20" width="359" height="597"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="500" image="imageView:28E-Jt-4L6:image" translatesAutoresizingMaskIntoConstraints="NO" id="28E-Jt-4L6">
-                                        <rect key="frame" x="0.0" y="0.0" width="304" height="235"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="284"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake Me!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-Q2-f8m">
-                                        <rect key="frame" x="0.0" y="265" width="304" height="37"/>
+                                        <rect key="frame" x="0.0" y="314" width="359" height="37"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Mk-Ln-1DI">
-                                        <rect key="frame" x="0.0" y="332" width="304" height="216"/>
+                                        <rect key="frame" x="0.0" y="381" width="359" height="216"/>
                                     </pickerView>
                                 </subviews>
                             </stackView>
@@ -40,12 +59,17 @@
                         <constraints>
                             <constraint firstItem="Z64-MS-ehs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5v4-xj-EK0"/>
                             <constraint firstItem="Z64-MS-ehs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="DKR-0C-4Bo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TMw-YX-OLg" secondAttribute="trailing" constant="8" id="Fx0-bS-PJh"/>
+                            <constraint firstItem="TMw-YX-OLg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Ptq-ih-U5e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TMw-YX-OLg" secondAttribute="bottom" constant="8" id="Tzo-tw-gBv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z64-MS-ehs" secondAttribute="trailing" constant="8" id="iPO-8E-mcz"/>
-                            <constraint firstItem="Z64-MS-ehs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="o5t-ua-bzU"/>
+                            <constraint firstItem="Z64-MS-ehs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-50" id="o5t-ua-bzU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="albumButton" destination="Nr7-KT-Eda" id="CrP-ac-q9s"/>
+                        <outlet property="cameraButton" destination="G0w-OJ-iHN" id="trn-Hz-An0"/>
                         <outlet property="foodImageView" destination="28E-Jt-4L6" id="K5P-ew-PVB"/>
                         <outlet property="foodPicker" destination="3Mk-Ln-1DI" id="WmA-N8-2wf"/>
                         <outlet property="titleLabel" destination="hsz-Q2-f8m" id="0RY-C5-yzH"/>
@@ -60,7 +84,7 @@
             <objects>
                 <viewController storyboardIdentifier="VideoVC" id="NXj-0a-Oo5" customClass="VideoViewController" customModule="Dishtroy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4s-Xh-YbV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="kLa-2c-hD0"/>
